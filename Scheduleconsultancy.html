@@ -57,111 +57,185 @@
     <div class="container">
       <div class="d-flex justify-content-between shadow-sm py-2">
         <!-- NavBar -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container-fluid">
-            <div class="d-flex gap-2">
-              <img src="Images/logo.PNG" style="height: 2.5rem" />
-              <a
-                class="navbar-brand"
-                href="index.html"
-                style="font-size: x-large"
-                >BRANDNEERS</a
+        <div class="d-flex justify-content-between shadow-sm py-2">
+          <!-- NavBar -->
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <div class="d-flex gap-2">
+                <img src="Images/logo.PNG" style="height: 2.5rem" />
+                <a
+                  class="navbar-brand"
+                  href="index.html"
+                  style="font-size: x-large"
+                  >BRANDNEERS</a
+                >
+              </div>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
               >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <!-- Other nav items -->
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fw-semibold"
+                      aria-current="page"
+                      href="index.html"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="#aboutFundnest"
+                      >About</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
+                  </li>
+                  <li class="nav-item" id="courseSection" style="display: none">
+                    <a class="nav-link fw-semibold" href="Course.html">Courses</a>
+                  </li>
+                  <li class="nav-item" id="resourceSection" style="display: none">
+                    <a class="nav-link fw-semibold" href="Resources.html"
+                      >Resources</a
+                    >
+                  </li>
+                  <li
+                    class="nav-item"
+                    id="consultUsSection"
+                    style="display: none"
+                  >
+                    <a
+                      class="nav-link fw-semibold"
+                      href="Consultancy.html"
+                      id="consultLink"
+                      >ConsultUs</a
+                    >
+                  </li>
+                  <!-- Conditional nav items -->
+                  <li
+                    class="nav-item fw-semibold"
+                    id="entrepreneurIdea"
+                    style="display: none"
+                  >
+                    <a class="nav-link" href="EntrepreneurIdeas.html"
+                      >Entrepreneur Ideas</a
+                    >
+                  </li>
+                  <li
+                    class="nav-item fw-semibold"
+                    id="entrepreneurList"
+                    style="display: none"
+                  >
+                    <a class="nav-link" href="EntrepreneurPane.html"
+                      >Entrepreneur List</a
+                    >
+                  </li>
+                  <li
+                    class="nav-item fw-semibold"
+                    id="investorIdea"
+                    style="display: none"
+                  >
+                    <a class="nav-link" href="InvestorIdeas.html"
+                      >Investor Ideas</a
+                    >
+                  </li>
+                  <li
+                    class="nav-item fw-semibold"
+                    id="investorlist"
+                    style="display: none"
+                  >
+                    <a class="nav-link" href="InvestorPane.html">Investor List</a>
+                  </li>
+  
+                  <buttton class="nav-item">
+                    <a
+                      class="nav-link rounded px-3 fw-semibold"
+                      style="
+                        margin-left: 28rem;
+                        background-color: rgba(0, 0, 0, 0.13);
+                      "
+                      id="loginLink"
+                      href="Login.html"
+                      >Login</a
+                    >
+                  </buttton>
+                </ul>
+              </div>
             </div>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
+          </nav>
+          <!-- Profile dropdown -->
+          <div
+            class="dropdown mt-4"
+            style="margin-right: 1rem"
+            id="profileDropdown"
+          >
+            <a
+              href="#"
+              class="d-flex align-items-center link-dark text-decoration-none"
+              id="profileDropdown"
+              data-bs-toggle="dropdown"
               aria-expanded="false"
-              aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <!-- Other nav items -->
-                <li class="nav-item">
-                  <a
-                    class="nav-link fw-semibold"
-                    aria-current="page"
-                    href="index.html"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link fw-semibold" href="#aboutFundnest"
-                    >About</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
-                </li>
-                <li class="nav-item" id="courseSection">
-                  <a class="nav-link fw-semibold" href="Course.html">Courses</a>
-                </li>
-                <li class="nav-item" id="resourceSection">
-                  <a class="nav-link fw-semibold" href="Resources.html"
-                    >Resources</a
-                  >
-                </li>
-                <li class="nav-item" id="consultUsSection">
-                  <a
-                    class="nav-link fw-semibold"
-                    href="Consultancy.html"
-                    id="consultLink"
-                    >ConsultUs</a
-                  >
-                </li>
-                <!-- Conditional nav items -->
-                <li
-                  class="nav-item fw-semibold"
-                  id="entrepreneurIdea"
-                  style="display: none"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+              <li class="nav-item" id="investorprofile" style="display: none">
+                <a class="nav-link" href="InvestorProfilePage.html"
+                  >Your Profile</a
                 >
-                  <a class="nav-link" href="EntrepreneurIdeas.html"
-                    >Entrepreneur Ideas</a
-                  >
-                </li>
-                <li
-                  class="nav-item fw-semibold"
-                  id="entrepreneurList"
-                  style="display: none"
+              </li>
+              <li class="nav-item" id="entrepreneurprofile" style="display: none">
+                <a class="nav-link" href="EntrepreneurProfilePage.html"
+                  >Your Profile</a
                 >
-                  <a class="nav-link" href="EntrepreneurPane.html"
-                    >Entrepreneur List</a
-                  >
-                </li>
-                <li
-                  class="nav-item fw-semibold"
-                  id="investorIdea"
-                  style="display: none"
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li class="nav-item" id="mycourse" style="display: none">
+                <a class="nav-link" href="Mycourse.html"
+                  >My Course</a
                 >
-                  <a class="nav-link" href="InvestorIdeas.html"
-                    >Investor Ideas</a
-                  >
-                </li>
-                <li class="nav-item fw-semibold" id="investorlist">
-                  <a class="nav-link" href="InvestorPane.html">Investor List</a>
-                </li>
-
-                <buttton class="nav-item">
-                  <a
-                    class="nav-link rounded px-3 fw-semibold"
-                    style="
-                      margin-left: 28rem;
-                      background-color: rgba(0, 0, 0, 0.13);
-                    "
-                    id="loginLink"
-                    href="Login.html"
-                    >Login</a
-                  >
-                </buttton>
-              </ul>
-            </div>
+              </li>
+  
+              <li><hr class="dropdown-divider" /></li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="wallet.html"
+                  >Wallet</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+  
+  
+              <li class="nav-item">
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
+              </li>
+            </ul>
           </div>
-        </nav>
+        </div>
         <!-- Profile dropdown -->
         <div
           class="dropdown mt-4"
@@ -1298,6 +1372,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    
     <script>
       function updateNavbar() {
         const token = localStorage.getItem("token");
@@ -1326,6 +1401,7 @@
 
           if (response.status === 200) {
             const userType = response.data.role;
+            console.log("usertype:", userType);
 
             // Show the appropriate profile link
             const investorProfile = document.getElementById("investorprofile");
@@ -1333,12 +1409,17 @@
               "entrepreneurprofile"
             );
 
+            console.log(userType === "entrepreneur");
             if (userType === "entrepreneur") {
               entrepreneurProfile.style.display = "block";
               investorProfile.style.display = "none";
-              document.getElementById("entrepreneurSection").style.display =
-                "block";
-              document.getElementById("investorSection").style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
               // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
               document.getElementById("entrepreneurIdea").style.display =
                 "none";
@@ -1350,8 +1431,9 @@
               document.getElementById("investorlist").style.display = "block";
 
               // Show the success section only to entrepreneurs
-              document.getElementById("sucessSection").style.display = "block";
+              // document.getElementById("sucessSection").style.display = "block";
 
+              console.log("response");
               // Show Course, Resources, and ConsultUs sections for entrepreneurs
               document.getElementById("courseSection").style.display = "block";
               document.getElementById("resourceSection").style.display =
@@ -1379,6 +1461,7 @@
               // Hide Course, Resources, and ConsultUs sections from investors if needed
               document.getElementById("courseSection").style.display = "none";
               document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
               document.getElementById("consultUsSection").style.display =
                 "none";
               // Hide the success section from investors
@@ -1414,6 +1497,8 @@
             .addEventListener("click", function (event) {
               event.preventDefault();
               alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
             });
         }
       });
@@ -1437,6 +1522,17 @@
         .addEventListener("click", function (event) {
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
+        });
+    </script>
+
+    <script>
+      // on clink consultsus open loagin
+
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
         });
     </script>
 

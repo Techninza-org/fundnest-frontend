@@ -63,15 +63,19 @@
                 <li class="nav-item">
                   <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
                 </li>
-                <li class="nav-item" id="courseSection">
+                <li class="nav-item" id="courseSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Course.html">Courses</a>
                 </li>
-                <li class="nav-item" id="resourceSection">
+                <li class="nav-item" id="resourceSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Resources.html"
                     >Resources</a
                   >
                 </li>
-                <li class="nav-item" id="consultUsSection">
+                <li
+                  class="nav-item"
+                  id="consultUsSection"
+                  style="display: none"
+                >
                   <a
                     class="nav-link fw-semibold"
                     href="Consultancy.html"
@@ -107,7 +111,11 @@
                     >Investor Ideas</a
                   >
                 </li>
-                <li class="nav-item fw-semibold" id="investorlist">
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorlist"
+                  style="display: none"
+                >
                   <a class="nav-link" href="InvestorPane.html">Investor List</a>
                 </li>
 
@@ -167,6 +175,21 @@
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html"
+                >My Course</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html"
+                >Wallet</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -200,17 +223,7 @@
         <p style="font-size: 3.5rem; font-weight: bold">
           To Support your BUSINESS
         </p>
-        <div class="d-flex" style="column-gap: 1rem">
-          <button class="border-0 rounded" style="width: 12rem; height: 2.8rem">
-            Dummy Text
-          </button>
-          <button
-            class="border-0 rounded bg-primary text-white"
-            style="width: 12rem; height: 2.8rem"
-          >
-            Dummy Text
-          </button>
-        </div>
+        
       </span>
     </div>
 
@@ -486,6 +499,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
+  
     <script>
       function updateNavbar() {
         const token = localStorage.getItem("token");
@@ -514,6 +528,7 @@
 
           if (response.status === 200) {
             const userType = response.data.role;
+            console.log("usertype:", userType);
 
             // Show the appropriate profile link
             const investorProfile = document.getElementById("investorprofile");
@@ -521,12 +536,17 @@
               "entrepreneurprofile"
             );
 
+            console.log(userType === "entrepreneur");
             if (userType === "entrepreneur") {
               entrepreneurProfile.style.display = "block";
               investorProfile.style.display = "none";
-              document.getElementById("entrepreneurSection").style.display =
-                "block";
-              document.getElementById("investorSection").style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
               // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
               document.getElementById("entrepreneurIdea").style.display =
                 "none";
@@ -538,8 +558,9 @@
               document.getElementById("investorlist").style.display = "block";
 
               // Show the success section only to entrepreneurs
-              document.getElementById("sucessSection").style.display = "block";
+              // document.getElementById("sucessSection").style.display = "block";
 
+              console.log("response");
               // Show Course, Resources, and ConsultUs sections for entrepreneurs
               document.getElementById("courseSection").style.display = "block";
               document.getElementById("resourceSection").style.display =
@@ -567,6 +588,7 @@
               // Hide Course, Resources, and ConsultUs sections from investors if needed
               document.getElementById("courseSection").style.display = "none";
               document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
               document.getElementById("consultUsSection").style.display =
                 "none";
               // Hide the success section from investors
@@ -602,6 +624,8 @@
             .addEventListener("click", function (event) {
               event.preventDefault();
               alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
             });
         }
       });
@@ -625,6 +649,17 @@
         .addEventListener("click", function (event) {
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
+        });
+    </script>
+
+    <script>
+      // on clink consultsus open loagin
+
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
         });
     </script>
 

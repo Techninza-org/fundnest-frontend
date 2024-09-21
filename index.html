@@ -173,6 +173,21 @@
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html"
+                >My Course</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html"
+                >Wallet</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -937,6 +952,7 @@
             },
           });
 
+          
           if (response.status === 200) {
             const userType = response.data.role;
 
@@ -951,6 +967,11 @@
               investorProfile.style.display = "none";
               document.getElementById("entrepreneurSection").style.display =
                 "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+              
+              document.getElementById("mycourse").style.display =
+                "block";
+              
               document.getElementById("investorSection").style.display = "none";
               // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
               document.getElementById("entrepreneurIdea").style.display =

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fund Nest</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -57,15 +58,19 @@
                 <li class="nav-item">
                   <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
                 </li>
-                <li class="nav-item" id="courseSection">
+                <li class="nav-item" id="courseSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Course.html">Courses</a>
                 </li>
-                <li class="nav-item" id="resourceSection">
+                <li class="nav-item" id="resourceSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Resources.html"
                     >Resources</a
                   >
                 </li>
-                <li class="nav-item" id="consultUsSection">
+                <li
+                  class="nav-item"
+                  id="consultUsSection"
+                  style="display: none"
+                >
                   <a
                     class="nav-link fw-semibold"
                     href="Consultancy.html"
@@ -101,7 +106,11 @@
                     >Investor Ideas</a
                   >
                 </li>
-                <li class="nav-item fw-semibold" id="investorlist">
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorlist"
+                  style="display: none"
+                >
                   <a class="nav-link" href="InvestorPane.html">Investor List</a>
                 </li>
 
@@ -161,6 +170,16 @@
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html">My Course</a>
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Wallet</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -174,252 +193,11 @@
         <h1 class="head display-4">
           Join Our <span style="color: #1753ef"> Top Courses</span>
         </h1>
-      
-        <div id="courses-container" class="row" style="margin-top: 10rem">
+
+        <div id="courses-container" class="row mt-5">
           <!-- Courses will be dynamically inserted here -->
         </div>
       </div>
-      
-
-      <!-- <div class="Investor">
-        <h1 class="head display-4">
-          Join Our <span style="color: #1753ef"> Top Courses</span>
-        </h1>
-
-        <div class="row" style="margin-top: 10rem">
-          <div class="col-md-6" style="margin-top: 8rem">
-            <h1 class="text-start display-4 fw-semibold">
-              Lorem ipsum dolor sit amet
-            </h1>
-            <p class="text-start">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
-            </p>
-            <div class="d-flex" style="column-gap: 5rem">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-            </div>
-            <div class="text-start">
-              <a href="CourseBooking.html"
-                ><button
-                  class="border-0 bg-primary text-white rounded"
-                  style="width: 15rem; height: 3.5rem"
-                >
-                  Enroll in Course
-                </button></a
-              >
-            </div>
-          </div>
-          <div class="col-md-6">
-            <img src="Images/Rectangle 117.png" style="height: 35rem" />
-          </div>
-        </div>
-        <div class="row" style="margin-top: 10rem">
-          <div class="col-md-6">
-            <img src="Images/Rectangle 117.png" style="height: 35rem" />
-          </div>
-          <div class="col-md-6" style="margin-top: 8rem">
-            <h1 class="text-start display-4 fw-semibold">
-              Lorem ipsum dolor sit amet
-            </h1>
-            <p class="text-start">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
-            </p>
-            <div class="d-flex" style="column-gap: 5rem">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-            </div>
-            <div class="text-start">
-              <a href="CourseBooking.html"
-                ><button
-                  class="border-0 bg-primary text-white rounded"
-                  style="width: 15rem; height: 3.5rem"
-                >
-                  Enroll in Course
-                </button></a
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="row" style="margin-top: 10rem">
-          <div class="col-md-6" style="margin-top: 8rem">
-            <h1 class="text-start display-4 fw-semibold">
-              Lorem ipsum dolor sit amet
-            </h1>
-            <p class="text-start">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
-            </p>
-            <div class="d-flex" style="column-gap: 5rem">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-            </div>
-            <div class="text-start">
-              <a href="CourseBooking.html"
-                ><button
-                  class="border-0 bg-primary text-white rounded"
-                  style="width: 15rem; height: 3.5rem"
-                >
-                  Enroll in Course
-                </button></a
-              >
-            </div>
-          </div>
-          <div class="col-md-6">
-            <img src="Images/Rectangle 117.png" style="height: 35rem" />
-          </div>
-        </div>
-        <div class="row" style="margin-top: 10rem">
-          <div class="col-md-6">
-            <img src="Images/Rectangle 117.png" style="height: 35rem" />
-          </div>
-          <div class="col-md-6" style="margin-top: 8rem">
-            <h1 class="text-start display-4 fw-semibold">
-              Lorem ipsum dolor sit amet
-            </h1>
-            <p class="text-start">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
-            </p>
-            <div class="d-flex" style="column-gap: 5rem">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-check-circle-fill text-primary"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
-                  />
-                </svg>
-                97% Users Satisfied
-              </p>
-            </div>
-            <div class="text-start">
-              <a href="CourseBooking.html"
-                ><button
-                  class="border-0 bg-primary text-white rounded"
-                  style="width: 15rem; height: 3.5rem"
-                >
-                  Enroll in Course
-                </button></a
-              >
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
 
     <!-- Footer -->
@@ -622,6 +400,7 @@
 
           if (response.status === 200) {
             const userType = response.data.role;
+            console.log("usertype:", userType);
 
             // Show the appropriate profile link
             const investorProfile = document.getElementById("investorprofile");
@@ -629,12 +408,17 @@
               "entrepreneurprofile"
             );
 
+            console.log(userType === "entrepreneur");
             if (userType === "entrepreneur") {
               entrepreneurProfile.style.display = "block";
               investorProfile.style.display = "none";
-              document.getElementById("entrepreneurSection").style.display =
-                "block";
-              document.getElementById("investorSection").style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
               // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
               document.getElementById("entrepreneurIdea").style.display =
                 "none";
@@ -646,8 +430,9 @@
               document.getElementById("investorlist").style.display = "block";
 
               // Show the success section only to entrepreneurs
-              document.getElementById("sucessSection").style.display = "block";
+              // document.getElementById("sucessSection").style.display = "block";
 
+              console.log("response");
               // Show Course, Resources, and ConsultUs sections for entrepreneurs
               document.getElementById("courseSection").style.display = "block";
               document.getElementById("resourceSection").style.display =
@@ -675,6 +460,7 @@
               // Hide Course, Resources, and ConsultUs sections from investors if needed
               document.getElementById("courseSection").style.display = "none";
               document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
               document.getElementById("consultUsSection").style.display =
                 "none";
               // Hide the success section from investors
@@ -710,6 +496,8 @@
             .addEventListener("click", function (event) {
               event.preventDefault();
               alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
             });
         }
       });
@@ -735,99 +523,186 @@
           handleLogout(); // Call the logout function when link is clicked
         });
     </script>
-   <script>
-     // API URL
-     const apiURL = "http://localhost:4000/videos/get-courses";
-   
-     // Token for authentication (replace with actual token)
-     const token = "your-auth-token";
-   
-     // Fetch the courses using Axios
-     axios
-       .get(apiURL, {
-         headers: {
-           Authorization: `Bearer ${token}`, // Add your token here
-         },
-       })
-       .then((response) => {
-         const courses = response.data.courses;
-         const coursesContainer = document.getElementById("courses-container");
-   
-         // Loop through each course and create HTML structure
-         courses.forEach((course, index) => {
-           let courseHTML;
-   
-           if (index % 2 === 0) {
-             // Even index - show course on the left
-             courseHTML = `
-               <div class="row" style="margin-top: 10rem">
-                 <div class="col-md-6" style="margin-top: 8rem">
-                   <h1 class="text-start display-4 fw-semibold">${course.title}</h1>
-                   <p class="text-start">${course.description}</p>
-                   <div class="d-flex" style="column-gap: 5rem">
-                     <p>
-                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary" viewBox="0 0 16 16">
-                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                       </svg>
-                       97% Users Satisfied
-                     </p>
-                     <p>
-                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary" viewBox="0 0 16 16">
-                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                       </svg>
-                       Affordable Cost: $${course.cost}
-                     </p>
-                   </div>
-                   <div class="text-start">
-                     <a href="CourseBooking.html"><button class="border-0 bg-primary text-white rounded" style="width: 15rem; height: 3.5rem">Enroll in Course</button></a>
-                   </div>
-                 </div>
-                 <div class="col-md-6">
-                   <img src="http://localhost:4000${course.thumnailUrl}" alt="${course.title} Thumbnail" style="height:30rem" />
-                 </div>
-               </div>
-             `;
-           } else {
-             // Odd index - show course on the right
-             courseHTML = `
-               <div class="row" style="margin-top: 10rem">
-                 <div class="col-md-6">
-                   <img src="http://localhost:4000${course.thumnailUrl}" alt="${course.title} Thumbnail" style="height: 12rem" />
-                 </div>
-                 <div class="col-md-6" style="margin-top: 8rem">
-                   <h1 class="text-start display-4 fw-semibold">${course.title}</h1>
-                   <p class="text-start">${course.description}</p>
-                   <div class="d-flex" style="column-gap: 5rem">
-                     <p>
-                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary" viewBox="0 0 16 16">
-                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                       </svg>
-                       97% Users Satisfied
-                     </p>
-                     <p>
-                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary" viewBox="0 0 16 16">
-                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                       </svg>
-                       Affordable Cost: $${course.cost}
-                     </p>
-                   </div>
-                   <div class="text-start">
-                     <a href="CourseBooking.html"><button class="border-0 bg-primary text-white rounded" style="width: 15rem; height: 3.5rem">Enroll in Course</button></a>
-                   </div>
-                 </div>
-               </div>
-             `;
-           }
-   
-           // Append the generated HTML to the container
-           coursesContainer.innerHTML += courseHTML;
-         });
-       })
-       .catch((error) => {
-         console.error("Error fetching courses:", error);
-       });
-   </script>
-   
-    
+
+    <script>
+      // on clink consultsus open loagin
+
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+
+    <script>
+      // API URL
+      const apiURL = "http://localhost:4000/videos/get-courses";
+
+      // Token for authentication (replace with actual token)
+      const token = "your-auth-token";
+
+      // Fetch the courses using Axios
+      axios
+        .get(apiURL, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Add your token here
+          },
+        })
+        .then((response) => {
+          const courses = response.data.courses;
+          const coursesContainer = document.getElementById("courses-container");
+
+          // Loop through each course and create HTML structure
+          courses.forEach((course, index) => {
+            let courseHTML;
+
+            if (index % 2 === 0) {
+              // Even index - show text on the right and image on the left
+              courseHTML = `
+               <div class="card row flex-md-row-reverse flex-column p-4" style="margin-top: 5rem">
+              <div class="col-md-6 p-3 d-flex flex-column justify-content-center">
+              <h1 class="text-start display-4 fw-semibold">${course.title}</h1>
+              <p class="text-start">${course.description}</p>
+              <div class="d-flex flex-column flex-md-row" style="column-gap: 5rem">
+               <p class="d-flex align-items-center">
+               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary me-2" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+            </svg>
+            97% Users Satisfied
+          </p>
+          <p class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary me-2" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+            </svg>
+            Affordable Cost: $${course.cost}
+          </p>
+        </div>
+        <div class="text-start">
+          <button class="enroll-btn border-0 bg-primary text-white rounded" data-cost="${course.cost}" data-title="${course.title}" data-course-id="${course._id}" style="width: 15rem; height: 3.5rem">Enroll in Course</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="http://localhost:4000${course.thumnailUrl}" alt="${course.title} Thumbnail" class="img-fluid" style="height: auto; max-height:100%; width: 100%;" />
+      </div>
+    </div>
+  `;
+            } else {
+              // Odd index - show text on the left and image on the right
+              courseHTML = `
+    <div class="card row flex-md-row flex-column p-4" style="margin-top: 5rem">
+      <div class="col-md-6 p-3 d-flex flex-column justify-content-center">
+        <h1 class="text-start display-4 fw-semibold">${course.title}</h1>
+        <p class="text-start">${course.description}</p>
+        <div class="d-flex flex-column flex-md-row" style="column-gap: 5rem">
+          <p class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary me-2" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+            </svg>
+            97% Users Satisfied
+          </p>
+          <p class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-primary me-2" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+            </svg>
+            Affordable Cost: $${course.cost}
+          </p>
+        </div>
+        <div class="text-start">
+          <button class="enroll-btn border-0 bg-primary text-white rounded" data-cost="${course.cost}" data-title="${course.title}" data-course-id="${course._id}" style="width: 15rem; height: 3.5rem">Enroll in Course</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="http://localhost:4000${course.thumnailUrl}" alt="${course.title} Thumbnail" class="img-fluid" style="height: auto; max-height: 100%; width: 100%;" />
+      </div>
+    </div>
+  `;
+            }
+
+            // Append the generated HTML to the container
+            coursesContainer.innerHTML += courseHTML;
+          });
+
+          // Add click event listener to enroll buttons
+          document.querySelectorAll(".enroll-btn").forEach((button) => {
+            button.addEventListener("click", function (e) {
+              const courseCost = e.target.getAttribute("data-cost");
+              const courseTitle = e.target.getAttribute("data-title");
+              const courseId = e.target.getAttribute("data-course-id");
+              startPaymentGateway(courseCost, courseTitle, courseId);
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching courses:", error);
+        });
+
+      // Function to start payment gateway with course price
+      function startPaymentGateway(courseCost, courseTitle, courseId) {
+        var options = {
+          key: "rzp_test_n5oTuMseyDclhS", // Replace with your key_id
+          amount: courseCost * 100, // Amount is in paise
+          currency: "INR",
+          name: "Company Name",
+          description: `Enroll in ${courseTitle}`,
+          handler: async function (response) {
+            var payment_id = response.razorpay_payment_id;
+
+            // Get the token from local storage
+            var token = localStorage.getItem("token"); // Replace with your token key
+
+            if (!token) {
+              alert("User is not authenticated.");
+              return;
+            }
+
+            // Define the axios configuration with headers
+            const config = {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            };
+            console.log(courseCost, courseId);
+            // Prepare the data to be sent
+            const data = {
+              amount: courseCost,
+              payment_id: payment_id,
+              courseId: courseId,
+            };
+
+            try {
+              // Send the payment details to the backend using axios
+              const response = await axios.post(
+                "http://localhost:3000/entrepreneur/buy-course",
+                data,
+                config
+              ); // Replace with your API endpoint
+
+              if (response.status === 200) {
+                alert("Payment successful, enrolled in the course!");
+                // Optionally reload or update the page
+              } else {
+                alert("Failed to process payment. Please try again.");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              alert("An error occurred. Please try again.");
+            }
+          },
+          prefill: {
+            name: "User Name", // Prefill with user data if available
+            email: "user@example.com",
+            contact: "9999999999",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+      }
+    </script>
   </body>
 </html>

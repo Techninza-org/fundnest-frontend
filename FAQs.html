@@ -169,6 +169,21 @@
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html"
+                >My Course</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html"
+                >Wallet</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -386,6 +401,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+   
     <script>
       function updateNavbar() {
         const token = localStorage.getItem("token");
@@ -414,6 +430,7 @@
 
           if (response.status === 200) {
             const userType = response.data.role;
+            console.log("usertype:", userType);
 
             // Show the appropriate profile link
             const investorProfile = document.getElementById("investorprofile");
@@ -421,12 +438,17 @@
               "entrepreneurprofile"
             );
 
+            console.log(userType === "entrepreneur");
             if (userType === "entrepreneur") {
               entrepreneurProfile.style.display = "block";
               investorProfile.style.display = "none";
-              document.getElementById("entrepreneurSection").style.display =
-                "block";
-              document.getElementById("investorSection").style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
               // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
               document.getElementById("entrepreneurIdea").style.display =
                 "none";
@@ -438,8 +460,9 @@
               document.getElementById("investorlist").style.display = "block";
 
               // Show the success section only to entrepreneurs
-              document.getElementById("sucessSection").style.display = "block";
+              // document.getElementById("sucessSection").style.display = "block";
 
+              console.log("response");
               // Show Course, Resources, and ConsultUs sections for entrepreneurs
               document.getElementById("courseSection").style.display = "block";
               document.getElementById("resourceSection").style.display =
@@ -467,6 +490,7 @@
               // Hide Course, Resources, and ConsultUs sections from investors if needed
               document.getElementById("courseSection").style.display = "none";
               document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
               document.getElementById("consultUsSection").style.display =
                 "none";
               // Hide the success section from investors
@@ -502,6 +526,8 @@
             .addEventListener("click", function (event) {
               event.preventDefault();
               alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
             });
         }
       });
@@ -525,6 +551,16 @@
         .addEventListener("click", function (event) {
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
+        });
+    </script>
+    <script>
+      // on clink consultsus open loagin
+
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
         });
     </script>
 

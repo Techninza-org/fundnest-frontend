@@ -69,15 +69,19 @@
                 <li class="nav-item">
                   <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
                 </li>
-                <li class="nav-item" id="courseSection">
+                <li class="nav-item" id="courseSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Course.html">Courses</a>
                 </li>
-                <li class="nav-item" id="resourceSection">
+                <li class="nav-item" id="resourceSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Resources.html"
                     >Resources</a
                   >
                 </li>
-                <li class="nav-item" id="consultUsSection">
+                <li
+                  class="nav-item"
+                  id="consultUsSection"
+                  style="display: none"
+                >
                   <a
                     class="nav-link fw-semibold"
                     href="Consultancy.html"
@@ -113,7 +117,11 @@
                     >Investor Ideas</a
                   >
                 </li>
-                <li class="nav-item fw-semibold" id="investorlist">
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorlist"
+                  style="display: none"
+                >
                   <a class="nav-link" href="InvestorPane.html">Investor List</a>
                 </li>
 
@@ -173,6 +181,21 @@
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html"
+                >My Course</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html"
+                >Wallet</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -538,145 +561,166 @@
     });
   </script>
 
-<script>
-  function updateNavbar() {
-    const token = localStorage.getItem("token");
-    const loginLink = document.getElementById("loginLink");
-    const logoutLink = document.getElementById("logoutLink");
-    const profileDropdown = document.getElementById("profileDropdown");
 
-    if (token) {
-      loginLink.style.display = "none";
-      logoutLink.style.display = "block";
-      profileDropdown.style.display = "block";
-    } else {
-      loginLink.style.display = "block";
-      logoutLink.style.display = "none";
-      profileDropdown.style.display = "none";
-    }
-  }
+ <script>
+      function updateNavbar() {
+        const token = localStorage.getItem("token");
+        const loginLink = document.getElementById("loginLink");
+        const logoutLink = document.getElementById("logoutLink");
+        const profileDropdown = document.getElementById("profileDropdown");
 
-  async function updateUserNavigation(token) {
-    try {
-      const response = await axios.get("http://localhost:3000/check/role", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        if (token) {
+          loginLink.style.display = "none";
+          logoutLink.style.display = "block";
+          profileDropdown.style.display = "block";
+        } else {
+          loginLink.style.display = "block";
+          logoutLink.style.display = "none";
+          profileDropdown.style.display = "none";
+        }
+      }
+
+      async function updateUserNavigation(token) {
+        try {
+          const response = await axios.get("http://localhost:3000/check/role", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.status === 200) {
+            const userType = response.data.role;
+            console.log("usertype:", userType);
+
+            // Show the appropriate profile link
+            const investorProfile = document.getElementById("investorprofile");
+            const entrepreneurProfile = document.getElementById(
+              "entrepreneurprofile"
+            );
+
+            console.log(userType === "entrepreneur");
+            if (userType === "entrepreneur") {
+              entrepreneurProfile.style.display = "block";
+              investorProfile.style.display = "none";
+              console.log("response")
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
+              // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
+              document.getElementById("entrepreneurIdea").style.display =
+                "none";
+              document.getElementById("entrepreneurList").style.display =
+                "none";
+
+              // Show Investor Ideas and Investor List to entrepreneurs
+              // document.getElementById("investorIdea").style.display = "block";
+              document.getElementById("investorlist").style.display = "block";
+
+              // Show the success section only to entrepreneurs
+              // document.getElementById("sucessSection").style.display = "block";
+
+              console.log("response");
+              // Show Course, Resources, and ConsultUs sections for entrepreneurs
+              document.getElementById("courseSection").style.display = "block";
+              document.getElementById("resourceSection").style.display =
+                "block";
+              document.getElementById("consultUsSection").style.display =
+                "block"; // Ensure ConsultUs is displayed
+            } else if (userType === "investor") {
+              investorProfile.style.display = "block";
+              entrepreneurProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
+                "none";
+              document.getElementById("investorSection").style.display =
+                "block";
+
+              // Show Entrepreneur Ideas and Entrepreneur List for investors
+              document.getElementById("entrepreneurIdea").style.display =
+                "block";
+              document.getElementById("entrepreneurList").style.display =
+                "block";
+
+              // Hide Investor Ideas and Investor List from investors
+              document.getElementById("investorIdea").style.display = "none";
+              document.getElementById("investorlist").style.display = "none";
+
+              // Hide Course, Resources, and ConsultUs sections from investors if needed
+              document.getElementById("courseSection").style.display = "none";
+              document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
+              document.getElementById("consultUsSection").style.display =
+                "none";
+              // Hide the success section from investors
+              document.getElementById("sucessSection").style.display = "none";
+            } else {
+              entrepreneurProfile.style.display = "none";
+              investorProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
+                "none";
+              document.getElementById("investorSection").style.display = "none";
+            }
+          } else {
+            console.error("Failed to fetch user type:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+
+        updateNavbar();
+
+        if (token) {
+          updateUserNavigation(token);
+        } else {
+          // If no one is logged in, show the Consult Us section but disable the link
+          document.getElementById("consultUsSection").style.display = "block";
+          document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
+          document
+            .getElementById("consultLink")
+            .addEventListener("click", function (event) {
+              event.preventDefault();
+              alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
+            });
+        }
       });
 
-      if (response.status === 200) {
-        const userType = response.data.role;
-
-        // Show the appropriate profile link
-        const investorProfile = document.getElementById("investorprofile");
-        const entrepreneurProfile = document.getElementById(
-          "entrepreneurprofile"
-        );
-
-        if (userType === "entrepreneur") {
-          entrepreneurProfile.style.display = "block";
-          investorProfile.style.display = "none";
-          document.getElementById("entrepreneurSection").style.display =
-            "block";
-          document.getElementById("investorSection").style.display = "none";
-          // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
-          document.getElementById("entrepreneurIdea").style.display =
-            "none";
-          document.getElementById("entrepreneurList").style.display =
-            "none";
-
-          // Show Investor Ideas and Investor List to entrepreneurs
-          // document.getElementById("investorIdea").style.display = "block";
-          document.getElementById("investorlist").style.display = "block";
-
-          // Show the success section only to entrepreneurs
-          document.getElementById("sucessSection").style.display = "block";
-
-          // Show Course, Resources, and ConsultUs sections for entrepreneurs
-          document.getElementById("courseSection").style.display = "block";
-          document.getElementById("resourceSection").style.display =
-            "block";
-          document.getElementById("consultUsSection").style.display =
-            "block"; // Ensure ConsultUs is displayed
-        } else if (userType === "investor") {
-          investorProfile.style.display = "block";
-          entrepreneurProfile.style.display = "none";
-          document.getElementById("entrepreneurSection").style.display =
-            "none";
-          document.getElementById("investorSection").style.display =
-            "block";
-
-          // Show Entrepreneur Ideas and Entrepreneur List for investors
-          document.getElementById("entrepreneurIdea").style.display =
-            "block";
-          document.getElementById("entrepreneurList").style.display =
-            "block";
-
-          // Hide Investor Ideas and Investor List from investors
-          document.getElementById("investorIdea").style.display = "none";
-          document.getElementById("investorlist").style.display = "none";
-
-          // Hide Course, Resources, and ConsultUs sections from investors if needed
-          document.getElementById("courseSection").style.display = "none";
-          document.getElementById("resourceSection").style.display = "none";
-          document.getElementById("consultUsSection").style.display =
-            "none";
-          // Hide the success section from investors
-          document.getElementById("sucessSection").style.display = "none";
-        } else {
-          entrepreneurProfile.style.display = "none";
-          investorProfile.style.display = "none";
-          document.getElementById("entrepreneurSection").style.display =
-            "none";
-          document.getElementById("investorSection").style.display = "none";
+      async function handleLogout() {
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/auth/logout"
+          );
+          alert(response.data.message);
+          localStorage.removeItem("token");
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error("Logout error:", error);
+          alert("Logout failed. Please try again.");
         }
-      } else {
-        console.error("Failed to fetch user type:", response.statusText);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const token = localStorage.getItem("token");
-
-    updateNavbar();
-
-    if (token) {
-      updateUserNavigation(token);
-    } else {
-      // If no one is logged in, show the Consult Us section but disable the link
-      document.getElementById("consultUsSection").style.display = "block";
-      document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
       document
-        .getElementById("consultLink")
+        .getElementById("logoutLink")
         .addEventListener("click", function (event) {
-          event.preventDefault();
-          alert("Please Log in");
+          event.preventDefault(); // Prevent default link behavior
+          handleLogout(); // Call the logout function when link is clicked
         });
-    }
-  });
-
-  async function handleLogout() {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/auth/logout"
-      );
-      alert(response.data.message);
-      localStorage.removeItem("token");
-      window.location.href = "index.html";
-    } catch (error) {
-      console.error("Logout error:", error);
-      alert("Logout failed. Please try again.");
-    }
-  }
+    </script>
+<script>
+  // on clink consultsus open loagin
 
   document
-    .getElementById("logoutLink")
+    .getElementById("log1")
     .addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default link behavior
-      handleLogout(); // Call the logout function when link is clicked
+      window.location.href = "login.html"; // Redirect to login page
     });
 </script>
   

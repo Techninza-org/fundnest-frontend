@@ -97,15 +97,19 @@
                 <li class="nav-item">
                   <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
                 </li>
-                <li class="nav-item" id="courseSection">
+                <li class="nav-item" id="courseSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Course.html">Courses</a>
                 </li>
-                <li class="nav-item" id="resourceSection">
+                <li class="nav-item" id="resourceSection" style="display: none">
                   <a class="nav-link fw-semibold" href="Resources.html"
                     >Resources</a
                   >
                 </li>
-                <li class="nav-item" id="consultUsSection">
+                <li
+                  class="nav-item"
+                  id="consultUsSection"
+                  style="display: none"
+                >
                   <a
                     class="nav-link fw-semibold"
                     href="Consultancy.html"
@@ -141,7 +145,11 @@
                     >Investor Ideas</a
                   >
                 </li>
-                <li class="nav-item fw-semibold" id="investorlist">
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorlist"
+                  style="display: none"
+                >
                   <a class="nav-link" href="InvestorPane.html">Investor List</a>
                 </li>
 
@@ -201,6 +209,21 @@
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html"
+                >My Course</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html"
+                >Wallet</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -232,7 +255,7 @@
           </p>
           <p class="webinar-description mb-3" id="webinar-description"></p>
           <p class="fw-bold mb-4">
-            <strong>Cost:</strong> ₹ <span id="webinar-cost"></span>
+            <strong>Cost:</strong> <span id="webinar-cost"></span>
           </p>
 
           <div class="webinar-footer">
@@ -352,7 +375,7 @@
         const loginLink = document.getElementById("loginLink");
         const logoutLink = document.getElementById("logoutLink");
         const profileDropdown = document.getElementById("profileDropdown");
-
+    
         if (token) {
           loginLink.style.display = "none";
           logoutLink.style.display = "block";
@@ -363,7 +386,7 @@
           profileDropdown.style.display = "none";
         }
       }
-
+    
       async function updateUserNavigation(token) {
         try {
           const response = await axios.get("http://localhost:3000/check/role", {
@@ -371,35 +394,42 @@
               Authorization: `Bearer ${token}`,
             },
           });
-
+    
           if (response.status === 200) {
             const userType = response.data.role;
-
+            console.log("usertype:", userType);
+    
             // Show the appropriate profile link
             const investorProfile = document.getElementById("investorprofile");
             const entrepreneurProfile = document.getElementById(
               "entrepreneurprofile"
             );
-
+    
+            console.log(userType === "entrepreneur");
             if (userType === "entrepreneur") {
               entrepreneurProfile.style.display = "block";
               investorProfile.style.display = "none";
-              document.getElementById("entrepreneurSection").style.display =
-                "block";
-              document.getElementById("investorSection").style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+    
+              document.getElementById("mycourse").style.display = "block";
+    
+              // document.getElementById("investorSection").style.display = "none";
               // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
               document.getElementById("entrepreneurIdea").style.display =
                 "none";
               document.getElementById("entrepreneurList").style.display =
                 "none";
-
+    
               // Show Investor Ideas and Investor List to entrepreneurs
               // document.getElementById("investorIdea").style.display = "block";
               document.getElementById("investorlist").style.display = "block";
-
+    
               // Show the success section only to entrepreneurs
-              document.getElementById("sucessSection").style.display = "block";
-
+              // document.getElementById("sucessSection").style.display = "block";
+    
+              console.log("response");
               // Show Course, Resources, and ConsultUs sections for entrepreneurs
               document.getElementById("courseSection").style.display = "block";
               document.getElementById("resourceSection").style.display =
@@ -413,20 +443,21 @@
                 "none";
               document.getElementById("investorSection").style.display =
                 "block";
-
+    
               // Show Entrepreneur Ideas and Entrepreneur List for investors
               document.getElementById("entrepreneurIdea").style.display =
                 "block";
               document.getElementById("entrepreneurList").style.display =
                 "block";
-
+    
               // Hide Investor Ideas and Investor List from investors
               document.getElementById("investorIdea").style.display = "none";
               document.getElementById("investorlist").style.display = "none";
-
+    
               // Hide Course, Resources, and ConsultUs sections from investors if needed
               document.getElementById("courseSection").style.display = "none";
               document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
               document.getElementById("consultUsSection").style.display =
                 "none";
               // Hide the success section from investors
@@ -445,12 +476,12 @@
           console.error("Error:", error);
         }
       }
-
+    
       document.addEventListener("DOMContentLoaded", () => {
         const token = localStorage.getItem("token");
-
+    
         updateNavbar();
-
+    
         if (token) {
           updateUserNavigation(token);
         } else {
@@ -462,10 +493,12 @@
             .addEventListener("click", function (event) {
               event.preventDefault();
               alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
             });
         }
       });
-
+    
       async function handleLogout() {
         try {
           const response = await axios.post(
@@ -479,7 +512,7 @@
           alert("Logout failed. Please try again.");
         }
       }
-
+    
       document
         .getElementById("logoutLink")
         .addEventListener("click", function (event) {
@@ -487,29 +520,46 @@
           handleLogout(); // Call the logout function when link is clicked
         });
     </script>
+    
+    <script>
+      // on clink consultsus open loagin
+    
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
+        });
+    </script> 
     <script>
       async function fetchWebinarDetails() {
         const urlParams = new URLSearchParams(window.location.search);
         const videoId = urlParams.get("id");
-
+         console.log("videoID",videoId)
         try {
           const token = localStorage.getItem("token");
+          console.log(token, 'token');
+          
           if (!token) {
             console.error("Token not found");
             return;
           }
-
+         
           const config = {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           };
+          console.log(config, 'congig');
+          
 
           // Fetch the video details
           const response = await axios.get(
-            `http://localhost:4000/videos/${videoId}`,
-            config
+            `http://localhost:4000/videos/all/${videoId}`,
+             config
           );
+          console.log(response, 'res');
+          
           const video = response.data.video; // Accessing video object correctly
 
           // Set video title, description, and cost
