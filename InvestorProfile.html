@@ -536,6 +536,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+      http://103.119.171.20:3000
       function updateNavbar() {
         const token = localStorage.getItem("token");
         const loginLink = document.getElementById("loginLink");
@@ -555,7 +556,7 @@
 
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get(`${baseUrl}/check/role`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -668,7 +669,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            `${baseUrl}/auth/logout`
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -685,8 +686,7 @@
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
         });
-    </script>
-    <script>
+   
       // on clink consultsus open loagin
 
       document
@@ -695,9 +695,7 @@
           event.preventDefault(); // Prevent default link behavior
           window.location.href = "login.html"; // Redirect to login page
         });
-    </script>
-
-    <script>
+    
       function getQueryParams() {
         const params = new URLSearchParams(window.location.search);
         return Object.fromEntries(params.entries());
@@ -718,7 +716,7 @@
           investorId = params.id; // Store investorId globally
 
           const response = await axios.get(
-            `http://localhost:3000/entrepreneur/investor/${investorId}`,
+            `${baseUrl}/entrepreneur/investor/${investorId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -782,7 +780,7 @@
 
         // POST request to express interest
         fetch(
-          `http://localhost:3000/entrepreneur/express-interest/${investorId}`,
+          `${baseUrl}/entrepreneur/express-interest/${investorId}`,
           {
             headers: {
               "Content-Type": "application/json",

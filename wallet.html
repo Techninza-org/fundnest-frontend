@@ -460,6 +460,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
+      const baseUrl="http://103.119.171.20:3000"
       document.addEventListener("DOMContentLoaded", async function () {
         const tableBody = document.getElementById("transaction-table-body");
 
@@ -475,7 +476,7 @@
           }
 
           // Fetch transaction history from the API with token in headers
-          const response = await fetch("http://localhost:3000/wallet/history", {
+          const response = await fetch(`${baseUrl}/wallet/history`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -519,11 +520,7 @@
             '<tr><td colspan="5">Error loading transactions.</td></tr>';
         }
       });
-    </script>
     
-    
-
-    <script>
       // on clink consultsus open loagin
 
       document
@@ -532,9 +529,7 @@
           event.preventDefault(); // Prevent default link behavior
           window.location.href = "login.html"; // Redirect to login page
         });
-    </script>
-
-    <script>
+    
       async function fetchCurrentUser(userType) {
         try {
           const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
@@ -544,7 +539,7 @@
           }
 
           const response = await axios.get(
-            `http://localhost:3000/${userType}/currentuser`,
+            `${baseUrl}/${userType}/currentuser`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -587,7 +582,7 @@
 
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get(`${baseUrl}/check/role`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -690,7 +685,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            `${baseUrl}/auth/logout`
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -707,12 +702,7 @@
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
         });
-    </script> 
-
-
-
-
-    <script>
+  
       document.getElementById("payBtn").onclick = function (e) {
         var amount = document.getElementById("amount").value;
         if (amount) {
@@ -750,7 +740,7 @@
               try {
                 // Send the payment details to the backend using axios
                 const response = await axios.post(
-                  "http://localhost:3000/wallet/recharge",
+                  `${baseUrl}/wallet/recharge`,
                   data,
                   config
                 ); // Replace with your API endpoint

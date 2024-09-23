@@ -469,6 +469,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+      const baseUrl="http://103.119.171.20:3000"
       function updateNavbar() {
         const token = localStorage.getItem("token");
         const loginLink = document.getElementById("loginLink");
@@ -488,7 +489,7 @@
 
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get(`${baseUrl}/check/role`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -601,7 +602,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            `${baseUrl}/auth/logout`
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -618,9 +619,7 @@
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
         });
-    </script>
-
-    <script>
+    
       // on clink consultsus open loagin
 
       document
@@ -629,9 +628,7 @@
           event.preventDefault(); // Prevent default link behavior
           window.location.href = "login.html"; // Redirect to login page
         });
-    </script>
-
-    <script>
+   
       document.addEventListener("DOMContentLoaded", function () {
         // Function to get the ID from the URL query string
         function getConsultantIdFromURL() {
@@ -647,10 +644,10 @@
         }
 
         // Base URL for API
-        const baseUrl = "http://localhost:4000"; // Change based on your API base URL
+        const baseUrl2 = "http://103.119.171.20:4000"; // Change based on your API base URL
 
         // API URL with the dynamic consultant ID
-        const apiUrl = `${baseUrl}/consult/getConsult/${consultantId}`;
+        const apiUrl = `${baseUrl2}/consult/getConsult/${consultantId}`;
 
         // Fetch data from API with token authentication
         function fetchConsultantData() {

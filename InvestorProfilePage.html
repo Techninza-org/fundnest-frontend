@@ -212,20 +212,15 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li class="nav-item" id="mycourse" style="display: none">
-              <a class="nav-link" href="Mycourse.html"
-                >My Course</a
-              >
+              <a class="nav-link" href="Mycourse.html">My Course</a>
             </li>
 
             <li><hr class="dropdown-divider" /></li>
 
             <li class="nav-item">
-              <a class="nav-link" href="wallet.html"
-                >Wallet</a
-              >
+              <a class="nav-link" href="wallet.html">Wallet</a>
             </li>
             <li><hr class="dropdown-divider" /></li>
-
 
             <li class="nav-item">
               <button class="nav-link" id="logoutLink" href="index.html">
@@ -312,11 +307,8 @@
                   <p
                     id="userDescription"
                     class="mt-4 text-wrap"
-                    style="font-size: x-large ;
-                    "
-                  >
-                   
-                  </p>
+                    style="font-size: x-large"
+                  ></p>
                   <div class="mt-4 d-flex gap-4">
                     <a href="InvestorSetUpProfile.html">
                       <button
@@ -442,9 +434,6 @@
             </button>
           </div>
         </div> -->
-
-
-        
       </div>
     </div>
 
@@ -534,9 +523,7 @@
                     >
                   </li>
                   <li class="mb-2">
-                    <a
-                      href="#blogs"
-                      class="text-white text-decoration-none"
+                    <a href="#blogs" class="text-white text-decoration-none"
                       >Blog</a
                     >
                   </li>
@@ -569,10 +556,10 @@
                 <ul class="list-unstyled">
                   <li class="mb-2">
                     <a href="#" class="text-white text-decoration-none"
-                      >3rd Floor, KNS Rana Tower, A, Block A, New Palam Vihar Phase 1, Sector 110, Gurugram, Haryana 122017</a
+                      >3rd Floor, KNS Rana Tower, A, Block A, New Palam Vihar
+                      Phase 1, Sector 110, Gurugram, Haryana 122017</a
                     >
                   </li>
-                
                 </ul>
               </div>
             </div>
@@ -588,6 +575,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+      const baseUrl = "http://103.119.171.20:3000";
       // Fetch current user data from backend
       async function fetchCurrentUser() {
         try {
@@ -597,14 +585,11 @@
             return;
           }
 
-          const response = await axios.get(
-            "http://localhost:3000/investor/currentuser",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get(`${baseUrl}/investor/currentuser`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           if (response.status === 200) {
             const user = response.data;
@@ -645,170 +630,164 @@
       document.addEventListener("DOMContentLoaded", () => {
         fetchCurrentUser();
       });
-    </script>
 
-    
-<script>
-  function updateNavbar() {
-    const token = localStorage.getItem("token");
-    const loginLink = document.getElementById("loginLink");
-    const logoutLink = document.getElementById("logoutLink");
-    const profileDropdown = document.getElementById("profileDropdown");
+      function updateNavbar() {
+        const token = localStorage.getItem("token");
+        const loginLink = document.getElementById("loginLink");
+        const logoutLink = document.getElementById("logoutLink");
+        const profileDropdown = document.getElementById("profileDropdown");
 
-    if (token) {
-      loginLink.style.display = "none";
-      logoutLink.style.display = "block";
-      profileDropdown.style.display = "block";
-    } else {
-      loginLink.style.display = "block";
-      logoutLink.style.display = "none";
-      profileDropdown.style.display = "none";
-    }
-  }
+        if (token) {
+          loginLink.style.display = "none";
+          logoutLink.style.display = "block";
+          profileDropdown.style.display = "block";
+        } else {
+          loginLink.style.display = "block";
+          logoutLink.style.display = "none";
+          profileDropdown.style.display = "none";
+        }
+      }
 
-  async function updateUserNavigation(token) {
-    try {
-      const response = await axios.get("http://localhost:3000/check/role", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      async function updateUserNavigation(token) {
+        try {
+          const response = await axios.get(`${baseUrl}/check/role`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.status === 200) {
+            const userType = response.data.role;
+            console.log("usertype:", userType);
+
+            // Show the appropriate profile link
+            const investorProfile = document.getElementById("investorprofile");
+            const entrepreneurProfile = document.getElementById(
+              "entrepreneurprofile"
+            );
+
+            console.log(userType === "entrepreneur");
+            if (userType === "entrepreneur") {
+              entrepreneurProfile.style.display = "block";
+              investorProfile.style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
+              // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
+              document.getElementById("entrepreneurIdea").style.display =
+                "none";
+              document.getElementById("entrepreneurList").style.display =
+                "none";
+
+              // Show Investor Ideas and Investor List to entrepreneurs
+              // document.getElementById("investorIdea").style.display = "block";
+              document.getElementById("investorlist").style.display = "block";
+
+              // Show the success section only to entrepreneurs
+              // document.getElementById("sucessSection").style.display = "block";
+
+              console.log("response");
+              // Show Course, Resources, and ConsultUs sections for entrepreneurs
+              document.getElementById("courseSection").style.display = "block";
+              document.getElementById("resourceSection").style.display =
+                "block";
+              document.getElementById("consultUsSection").style.display =
+                "block"; // Ensure ConsultUs is displayed
+            } else if (userType === "investor") {
+              console.log("response");
+              investorProfile.style.display = "block";
+              entrepreneurProfile.style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "none";
+              // document.getElementById("investorSection").style.display =
+              //   "block";
+              // Show Entrepreneur Ideas and Entrepreneur List for investors
+
+              document.getElementById("entrepreneurIdea").style.display =
+                "block";
+              document.getElementById("entrepreneurList").style.display =
+                "block";
+
+              // Hide Investor Ideas and Investor List from investors
+              document.getElementById("investorIdea").style.display = "none";
+              document.getElementById("investorlist").style.display = "none";
+
+              // Hide Course, Resources, and ConsultUs sections from investors if needed
+              document.getElementById("courseSection").style.display = "none";
+              document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
+              document.getElementById("consultUsSection").style.display =
+                "none";
+              // Hide the success section from investors
+              document.getElementById("sucessSection").style.display = "none";
+            } else {
+              entrepreneurProfile.style.display = "none";
+              investorProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
+                "none";
+              document.getElementById("investorSection").style.display = "none";
+            }
+          } else {
+            console.error("Failed to fetch user type:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+
+        updateNavbar();
+
+        if (token) {
+          updateUserNavigation(token);
+        } else {
+          // If no one is logged in, show the Consult Us section but disable the link
+          document.getElementById("consultUsSection").style.display = "block";
+          document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
+          document
+            .getElementById("consultLink")
+            .addEventListener("click", function (event) {
+              event.preventDefault();
+              alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
+            });
+        }
       });
 
-      if (response.status === 200) {
-        const userType = response.data.role;
-        console.log("usertype:", userType);
-
-        // Show the appropriate profile link
-        const investorProfile = document.getElementById("investorprofile");
-        const entrepreneurProfile = document.getElementById(
-          "entrepreneurprofile"
-        );
-
-        console.log(userType === "entrepreneur");
-        if (userType === "entrepreneur") {
-          entrepreneurProfile.style.display = "block";
-          investorProfile.style.display = "none";
-          // document.getElementById("entrepreneurSection").style.display =
-          //   "block";
-          // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
-
-          document.getElementById("mycourse").style.display = "block";
-
-          // document.getElementById("investorSection").style.display = "none";
-          // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
-          document.getElementById("entrepreneurIdea").style.display =
-            "none";
-          document.getElementById("entrepreneurList").style.display =
-            "none";
-
-          // Show Investor Ideas and Investor List to entrepreneurs
-          // document.getElementById("investorIdea").style.display = "block";
-          document.getElementById("investorlist").style.display = "block";
-
-          // Show the success section only to entrepreneurs
-          // document.getElementById("sucessSection").style.display = "block";
-
-          console.log("response");
-          // Show Course, Resources, and ConsultUs sections for entrepreneurs
-          document.getElementById("courseSection").style.display = "block";
-          document.getElementById("resourceSection").style.display =
-            "block";
-          document.getElementById("consultUsSection").style.display =
-            "block"; // Ensure ConsultUs is displayed
-        } else if (userType === "investor") {
-          console.log("response");
-          investorProfile.style.display = "block";
-          entrepreneurProfile.style.display = "none";
-          // document.getElementById("entrepreneurSection").style.display =
-          //   "none";
-          // document.getElementById("investorSection").style.display =
-          //   "block";
-          // Show Entrepreneur Ideas and Entrepreneur List for investors
-            
-          document.getElementById("entrepreneurIdea").style.display =
-            "block";
-          document.getElementById("entrepreneurList").style.display =
-            "block";
-
-          // Hide Investor Ideas and Investor List from investors
-          document.getElementById("investorIdea").style.display = "none";
-          document.getElementById("investorlist").style.display = "none";
-
-          // Hide Course, Resources, and ConsultUs sections from investors if needed
-          document.getElementById("courseSection").style.display = "none";
-          document.getElementById("resourceSection").style.display = "none";
-          console.log("Course section");
-          document.getElementById("consultUsSection").style.display =
-            "none";
-          // Hide the success section from investors
-          document.getElementById("sucessSection").style.display = "none";
-        } else {
-          entrepreneurProfile.style.display = "none";
-          investorProfile.style.display = "none";
-          document.getElementById("entrepreneurSection").style.display =
-            "none";
-          document.getElementById("investorSection").style.display = "none";
+      async function handleLogout() {
+        try {
+          const response = await axios.post(`${baseUrl}/auth/logout`);
+          alert(response.data.message);
+          localStorage.removeItem("token");
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error("Logout error:", error);
+          alert("Logout failed. Please try again.");
         }
-      } else {
-        console.error("Failed to fetch user type:", response.statusText);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const token = localStorage.getItem("token");
-
-    updateNavbar();
-
-    if (token) {
-      updateUserNavigation(token);
-    } else {
-      // If no one is logged in, show the Consult Us section but disable the link
-      document.getElementById("consultUsSection").style.display = "block";
-      document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
       document
-        .getElementById("consultLink")
+        .getElementById("logoutLink")
         .addEventListener("click", function (event) {
-          event.preventDefault();
-          alert("Please Log in");
-          // open login page
-          window.location.href = "login.html";
+          event.preventDefault(); // Prevent default link behavior
+          handleLogout(); // Call the logout function when link is clicked
         });
-    }
-  });
 
-  async function handleLogout() {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/auth/logout"
-      );
-      alert(response.data.message);
-      localStorage.removeItem("token");
-      window.location.href = "index.html";
-    } catch (error) {
-      console.error("Logout error:", error);
-      alert("Logout failed. Please try again.");
-    }
-  }
+      // on clink consultsus open loagin
 
-  document
-    .getElementById("logoutLink")
-    .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      handleLogout(); // Call the logout function when link is clicked
-    });
-</script>
-<script>
-  // on clink consultsus open loagin
-
-  document
-    .getElementById("log1")
-    .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      window.location.href = "login.html"; // Redirect to login page
-    });
-</script>
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
   </body>
 </html>

@@ -652,6 +652,7 @@
 
     
     <script>
+      const baseUrl="http://103.119.171.20:3000"
       function updateNavbar() {
         const token = localStorage.getItem("token");
         const loginLink = document.getElementById("loginLink");
@@ -671,7 +672,7 @@
 
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get(`${baseUrl}/check/role`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -784,7 +785,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            `${baseUrl}/auth/logout`
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -801,9 +802,7 @@
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
         });
-    </script>
-
-    <script>
+    
       // on clink consultsus open loagin
 
       document
@@ -812,9 +811,7 @@
           event.preventDefault(); // Prevent default link behavior
           window.location.href = "login.html"; // Redirect to login page
         });
-    </script>
-
-    <script>
+  
       document.addEventListener("DOMContentLoaded", function () {
         const calendarBody = document.getElementById("calendar-body");
         const monthYear = document.getElementById("month-year");
@@ -911,9 +908,7 @@
         // Initial render
         renderCalendar(currentDate);
       });
-    </script>
-
-    <script>
+   
       document
         .getElementById("sendButton")
         .addEventListener("click", function () {
@@ -932,9 +927,7 @@
         var outputPlatform = document.getElementById("outputPlatform");
         outputPlatform.innerHTML = `<p class="text-primary fs-5">${platform}</p>`;
       }
-    </script>
-
-    <script>
+    
       function getConsultantIdFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("id"); // Returns the 'id' parameter from URL
@@ -951,7 +944,7 @@
           const token = localStorage.getItem("token");
           const id = getConsultantIdFromURL();
           const response = await axios.get(
-            `http://localhost:4000/consult/getConsult/${id}`,
+            `http://103.119.171.20:4000/consult/getConsult/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -996,7 +989,7 @@
               return;
             }
             const response = await axios.post(
-              "http://localhost:3000/appointments/appointment",
+              `${baseUrl}/appointments/appointment`,
               {
                 consult_id,
                 consultName,

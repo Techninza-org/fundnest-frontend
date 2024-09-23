@@ -96,6 +96,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      const baseUrl="http://103.119.171.20:3000"
       document
         .getElementById("loginForm")
         .addEventListener("submit", async function (event) {
@@ -104,7 +105,7 @@
           const password = document.getElementById("password").value;
 
           try {
-            const response = await fetch("http://localhost:3000/auth/login", {
+            const response = await fetch(`${baseUrl}/auth/login`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

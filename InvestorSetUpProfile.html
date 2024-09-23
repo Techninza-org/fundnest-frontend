@@ -12,269 +12,344 @@
     />
     <link rel="stylesheet" href="FundNest.css" />
     <style>
-      @media (max-width: 768px){
-        .img-fluid{
+      @media (max-width: 768px) {
+        .img-fluid {
           margin-left: 6rem;
           margin-bottom: -1rem;
         }
-        .pp{
+        .pp {
           margin-left: 7rem;
         }
-        
       }
     </style>
   </head>
   <body>
     <div class="container">
-
-     <!-- NavBar -->
-     <div class="d-flex justify-content-between shadow-sm py-2">
       <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <div class="d-flex gap-2">
-            <img src="Images/logo.PNG" style="height: 2.5rem" />
-            <a
-              class="navbar-brand"
-              href="index.html"
-              style="font-size: x-large"
-              >BRANDNEERS</a
+      <div class="d-flex justify-content-between shadow-sm py-2">
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <div class="d-flex gap-2">
+              <img src="Images/logo.PNG" style="height: 2.5rem" />
+              <a
+                class="navbar-brand"
+                href="index.html"
+                style="font-size: x-large"
+                >BRANDNEERS</a
+              >
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <!-- Other nav items -->
+                <li class="nav-item">
+                  <a
+                    class="nav-link fw-semibold"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-semibold" href="#aboutFundnest"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
+                </li>
+                <li class="nav-item" id="courseSection" style="display: none">
+                  <a class="nav-link fw-semibold" href="Course.html">Courses</a>
+                </li>
+                <li class="nav-item" id="resourceSection" style="display: none">
+                  <a class="nav-link fw-semibold" href="Resources.html"
+                    >Resources</a
+                  >
+                </li>
+                <li
+                  class="nav-item"
+                  id="consultUsSection"
+                  style="display: none"
+                >
+                  <a
+                    class="nav-link fw-semibold"
+                    href="Consultancy.html"
+                    id="consultLink"
+                    >ConsultUs</a
+                  >
+                </li>
+                <!-- Conditional nav items -->
+                <li
+                  class="nav-item fw-semibold"
+                  id="entrepreneurIdea"
+                  style="display: none"
+                >
+                  <a class="nav-link" href="EntrepreneurIdeas.html"
+                    >Entrepreneur Ideas</a
+                  >
+                </li>
+                <li
+                  class="nav-item fw-semibold"
+                  id="entrepreneurList"
+                  style="display: none"
+                >
+                  <a class="nav-link" href="EntrepreneurPane.html"
+                    >Entrepreneur List</a
+                  >
+                </li>
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorIdea"
+                  style="display: none"
+                >
+                  <a class="nav-link" href="InvestorIdeas.html"
+                    >Investor Ideas</a
+                  >
+                </li>
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorlist"
+                  style="display: none"
+                >
+                  <a class="nav-link" href="InvestorPane.html">Investor List</a>
+                </li>
+
+                <buttton class="nav-item">
+                  <a
+                    class="nav-link rounded px-3 fw-semibold"
+                    style="
+                      margin-left: 28rem;
+                      background-color: rgba(0, 0, 0, 0.13);
+                    "
+                    id="loginLink"
+                    href="Login.html"
+                    >Login</a
+                  >
+                </buttton>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Profile dropdown -->
+        <div
+          class="dropdown mt-4"
+          style="margin-right: 1rem"
+          id="profileDropdown"
+        >
+          <a
+            href="#"
+            class="d-flex align-items-center link-dark text-decoration-none"
+            id="profileDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+              />
+            </svg>
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li class="nav-item" id="investorprofile" style="display: none">
+              <a class="nav-link" href="InvestorProfilePage.html"
+                >Your Profile</a
+              >
+            </li>
+            <li class="nav-item" id="entrepreneurprofile" style="display: none">
+              <a class="nav-link" href="EntrepreneurProfilePage.html"
+                >Your Profile</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li class="nav-item" id="mycourse" style="display: none">
+              <a class="nav-link" href="Mycourse.html">My Course</a>
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Wallet</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <button class="nav-link" id="logoutLink" href="index.html">
+                Log Out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h1 class="head display-4" style="margin-top: 5rem">
+          Set Up Your <span style="color: #1753ef">Profile</span>
+        </h1>
+        <p class="mt-5 fs-5 fw-semibold text-primary pp">Profile picture</p>
+
+        <div class="row">
+          <div class="col-12 col-md-3 mb-3 mb-md-0">
+            <img
+              src="Images/Ellipse 1.png"
+              class="img-fluid"
+              style="height: 10rem"
+            />
+          </div>
+          <div
+            class="col-12 col-md-3 mb-md-0 d-flex justify-content-center mt-5"
+          >
+            <button
+              class="btn btn-primary d-flex justify-content-center align-items-center px-4"
+              style="width: 100%; max-width: 13rem; height: 3rem"
+            >
+              Change Pictures
+            </button>
+          </div>
+          <div class="col-12 col-md-3 d-flex justify-content-center mt-5">
+            <button
+              id="deleteButton"
+              class="btn btn-outline-danger d-flex justify-content-center align-items-center py-2"
+              style="width: 100%; max-width: 13rem; height: 3rem"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+
+        <form id="profileForm">
+          <div class="mb-3">
+            <label
+              for="profileName"
+              class="form-label mt-5 fs-5 fw-semibold text-primary"
+              >Profile name</label
+            >
+            <input
+              type="text"
+              class="form-control mt-3"
+              id="profileName"
+              name="name"
+              style="height: 3.5rem"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="email"
+              class="form-label mt-3 fs-5 fw-semibold text-primary"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              class="form-control mt-3"
+              id="email"
+              name="newemail"
+              style="height: 3.5rem"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="companyName"
+              class="form-label mt-3 fs-5 fw-semibold text-primary"
+              >Company name</label
+            >
+            <input
+              type="text"
+              class="form-control mt-3"
+              id="companyName"
+              name="companyname"
+              style="height: 3.5rem"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="designation"
+              class="form-label mt-3 fs-5 fw-semibold text-primary"
+              >Designation</label
+            >
+            <input
+              type="text"
+              class="form-control mt-3"
+              id="designation"
+              name="designation"
+              style="height: 3.5rem"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="experience"
+              class="form-label mt-3 fs-5 fw-semibold text-primary"
+              >Experience (In years)</label
+            >
+            <input
+              type="text"
+              class="form-control mt-3"
+              id="experience"
+              name="experience"
+              style="height: 3.5rem"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="educationDetails"
+              class="form-label mt-3 fs-5 fw-semibold text-primary"
+              >Education details</label
+            >
+            <input
+              type="text"
+              class="form-control mt-3"
+              id="educationDetails"
+              name="educationdetails"
+              style="height: 3.5rem"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="description"
+              class="form-label mt-3 fs-5 fw-semibold text-primary"
+              >Description</label
+            >
+            <textarea
+              class="form-control mt-3"
+              id="description"
+              name="description"
+              style="height: 15rem"
+              required
+            ></textarea>
           </div>
           <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            type="submit"
+            class="text-white px-5 py-3 border-0 mt-5"
+            style="background-color: #343434; width: 20rem"
           >
-            <span class="navbar-toggler-icon"></span>
+            Update Profile
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <!-- Other nav items -->
-              <li class="nav-item">
-                <a
-                  class="nav-link fw-semibold"
-                  aria-current="page"
-                  href="index.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fw-semibold" href="#aboutFundnest"
-                  >About</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
-              </li>
-              <li class="nav-item" id="courseSection" style="display: none">
-                <a class="nav-link fw-semibold" href="Course.html">Courses</a>
-              </li>
-              <li class="nav-item" id="resourceSection" style="display: none">
-                <a class="nav-link fw-semibold" href="Resources.html"
-                  >Resources</a
-                >
-              </li>
-              <li
-                class="nav-item"
-                id="consultUsSection"
-                style="display: none"
-              >
-                <a
-                  class="nav-link fw-semibold"
-                  href="Consultancy.html"
-                  id="consultLink"
-                  >ConsultUs</a
-                >
-              </li>
-              <!-- Conditional nav items -->
-              <li
-                class="nav-item fw-semibold"
-                id="entrepreneurIdea"
-                style="display: none"
-              >
-                <a class="nav-link" href="EntrepreneurIdeas.html"
-                  >Entrepreneur Ideas</a
-                >
-              </li>
-              <li
-                class="nav-item fw-semibold"
-                id="entrepreneurList"
-                style="display: none"
-              >
-                <a class="nav-link" href="EntrepreneurPane.html"
-                  >Entrepreneur List</a
-                >
-              </li>
-              <li
-                class="nav-item fw-semibold"
-                id="investorIdea"
-                style="display: none"
-              >
-                <a class="nav-link" href="InvestorIdeas.html"
-                  >Investor Ideas</a
-                >
-              </li>
-              <li
-                class="nav-item fw-semibold"
-                id="investorlist"
-                style="display: none"
-              >
-                <a class="nav-link" href="InvestorPane.html">Investor List</a>
-              </li>
-
-              <buttton class="nav-item">
-                <a
-                  class="nav-link rounded px-3 fw-semibold"
-                  style="
-                    margin-left: 28rem;
-                    background-color: rgba(0, 0, 0, 0.13);
-                  "
-                  id="loginLink"
-                  href="Login.html"
-                  >Login</a
-                >
-              </buttton>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- Profile dropdown -->
-      <div
-        class="dropdown mt-4"
-        style="margin-right: 1rem"
-        id="profileDropdown"
-      >
-        <a
-          href="#"
-          class="d-flex align-items-center link-dark text-decoration-none"
-          id="profileDropdown"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            fill="currentColor"
-            class="bi bi-person-circle"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-            <path
-              fill-rule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-            />
-          </svg>
-        </a>
-        <ul class="dropdown-menu text-small shadow">
-          <li class="nav-item" id="investorprofile" style="display: none">
-            <a class="nav-link" href="InvestorProfilePage.html"
-              >Your Profile</a
-            >
-          </li>
-          <li class="nav-item" id="entrepreneurprofile" style="display: none">
-            <a class="nav-link" href="EntrepreneurProfilePage.html"
-              >Your Profile</a
-            >
-          </li>
-          <li><hr class="dropdown-divider" /></li>
-          <li class="nav-item" id="mycourse" style="display: none">
-            <a class="nav-link" href="Mycourse.html"
-              >My Course</a
-            >
-          </li>
-
-          <li><hr class="dropdown-divider" /></li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="wallet.html"
-              >Wallet</a
-            >
-          </li>
-          <li><hr class="dropdown-divider" /></li>
-
-
-          <li class="nav-item">
-            <button class="nav-link" id="logoutLink" href="index.html">
-              Log Out
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-        <div>
-          <h1 class="head display-4" style="margin-top: 5rem">
-            Set Up Your <span style="color: #1753ef">Profile</span>
-          </h1>
-          <p class="mt-5 fs-5 fw-semibold text-primary pp">Profile picture</p>
-
-          <div class="row">
-            <div class="col-12 col-md-3 mb-3 mb-md-0">
-              <img
-                src="Images/Ellipse 1.png"
-                class="img-fluid"
-                style="height: 10rem"
-              />
-            </div>
-            <div
-              class="col-12 col-md-3 mb-md-0 d-flex justify-content-center mt-5"
-            >
-              <button
-                class="btn btn-primary d-flex justify-content-center align-items-center px-4"
-                style="width: 100%; max-width: 13rem; height: 3rem"
-              >
-                Change Pictures
-              </button>
-            </div>
-            <div class="col-12 col-md-3 d-flex justify-content-center mt-5">
-              <button id="deleteButton" class="btn btn-outline-danger d-flex justify-content-center align-items-center py-2" style="width: 100%; max-width: 13rem; height: 3rem;">
-                  Delete
-              </button>
-          </div>
-          </div>
-
-          <form id="profileForm">
-            <div class="mb-3">
-                <label for="profileName" class="form-label mt-5 fs-5 fw-semibold text-primary">Profile name</label>
-                <input type="text" class="form-control mt-3" id="profileName" name="name" style="height: 3.5rem;" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label mt-3 fs-5 fw-semibold text-primary">E-mail</label>
-                <input type="email" class="form-control mt-3" id="email" name="newemail" style="height: 3.5rem;" required>
-            </div>
-            <div class="mb-3">
-                <label for="companyName" class="form-label mt-3 fs-5 fw-semibold text-primary">Company name</label>
-                <input type="text" class="form-control mt-3" id="companyName" name="companyname" style="height: 3.5rem;" required>
-            </div>
-            <div class="mb-3">
-                <label for="designation" class="form-label mt-3 fs-5 fw-semibold text-primary">Designation</label>
-                <input type="text" class="form-control mt-3" id="designation" name="designation" style="height: 3.5rem;" required>
-            </div>
-            <div class="mb-3">
-                <label for="experience" class="form-label mt-3 fs-5 fw-semibold text-primary">Experience (In years)</label>
-                <input type="text" class="form-control mt-3" id="experience" name="experience" style="height: 3.5rem;" required>
-            </div>
-            <div class="mb-3">
-                <label for="educationDetails" class="form-label mt-3 fs-5 fw-semibold text-primary">Education details</label>
-                <input type="text" class="form-control mt-3" id="educationDetails" name="educationdetails" style="height: 3.5rem;" required>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label mt-3 fs-5 fw-semibold text-primary">Description</label>
-                <textarea class="form-control mt-3" id="description" name="description" style="height: 15rem;" required></textarea>
-            </div>
-            <button type="submit" class="text-white px-5 py-3 border-0 mt-5" style="background-color: #343434; width: 20rem;">Update Profile</button>
         </form>
-        
-
-
-        </div>
-      
+      </div>
     </div>
 
     <div
@@ -363,9 +438,7 @@
                     >
                   </li>
                   <li class="mb-2">
-                    <a
-                      href="#blogs"
-                      class="text-white text-decoration-none"
+                    <a href="#blogs" class="text-white text-decoration-none"
                       >Blog</a
                     >
                   </li>
@@ -398,10 +471,10 @@
                 <ul class="list-unstyled">
                   <li class="mb-2">
                     <a href="#" class="text-white text-decoration-none"
-                      >3rd Floor, KNS Rana Tower, A, Block A, New Palam Vihar Phase 1, Sector 110, Gurugram, Haryana 122017</a
+                      >3rd Floor, KNS Rana Tower, A, Block A, New Palam Vihar
+                      Phase 1, Sector 110, Gurugram, Haryana 122017</a
                     >
                   </li>
-                
                 </ul>
               </div>
             </div>
@@ -410,7 +483,6 @@
         </div>
       </div>
     </div>
-    
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -421,299 +493,299 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+      const baseUrl = "http://103.119.171.20:3000";
       // Fetch current user data from backend
       async function fetchCurrentUser() {
-          try {
-              const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
-              if (!token) {
-                  console.error("Token not found");
-                  return;
-              }
-  
-              const response = await axios.get(
-                  "http://localhost:3000/investor/currentuser",
-                  {
-                      headers: {
-                          Authorization: `Bearer ${token}`,
-                      },
-                  }
-              );
-  
-              if (response.status === 200) {
-                  const user = response.data.currentUser; // Assuming the user object is structured this way
-                  populateUserProfile(user);
-              } else {
-                  console.error("Error fetching current user:", response.statusText);
-                  displayError("Failed to fetch user data");
-              }
-          } catch (error) {
-              console.error("Error:", error);
-              displayError("An error occurred");
-          }
-      }
-  
-      // Populate user profile with fetched data
-      function populateUserProfile(user) {
-          document.getElementById("profileName").value = user.name;
-          document.getElementById("email").value = user.email;
-          document.getElementById("companyName").value = user.companyname;
-          document.getElementById("designation").value = user.designation;
-          document.getElementById("experience").value = user.experience;
-          document.getElementById("educationDetails").value = user.educationdetails;
-          document.getElementById("description").value = user.description;
-      }
-  
-      // Display error message on the page
-      function displayError(message) {
-          console.error(message);
-          alert(message);
-      }
-  
-      // Call fetchCurrentUser when the page loads
-      document.addEventListener("DOMContentLoaded", () => {
-          fetchCurrentUser();
-      });
-  
-      // Handle form submission
-      document.getElementById('profileForm').addEventListener('submit', async function(event) {
-          event.preventDefault();
-  
-          const formData = {
-              name: document.getElementById('profileName').value,
-              newemail: document.getElementById('email').value,
-              companyname: document.getElementById('companyName').value,
-              designation: document.getElementById('designation').value,
-              experience: document.getElementById('experience').value,
-              educationdetails: document.getElementById('educationDetails').value,
-              description: document.getElementById('description').value
-          };
-  
-          try {
-              const token = localStorage.getItem("token");
-              if (!token) {
-                  console.error("Token not found");
-                  return;
-              }
-  
-              const response = await axios.patch('http://localhost:3000/investor/editprofile', formData, {
-                  headers: {
-                      Authorization: `Bearer ${token}`,
-                  },
-              });
-  
-              // Handle success
-              if (response.status === 200) {
-                  console.log('Profile updated successfully:', response.data);
-                  alert('Profile updated successfully!');
-                  window.location.href = 'InvestorProfilePage.html';
-              } else {
-                  console.error('Error updating profile:', response.statusText);
-                  alert('Failed to update profile. Please try again.');
-              }
-  
-          } catch (error) {
-              console.error('Error updating profile:', error);
-              alert('Failed to update profile. Please try again.');
-          }
-      });
-
-      // Handle delete button click
-    document.getElementById('deleteButton').addEventListener('click', async function(event) {
-        event.preventDefault();
-
-        const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
-        if (!token) {
+        try {
+          const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+          if (!token) {
             console.error("Token not found");
             return;
-        }
+          }
 
-        try {
-            const response = await axios.delete('http://localhost:3000/investor/deleteuser', {
+          const response = await axios.get(`${baseUrl}/investor/currentuser`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.status === 200) {
+            const user = response.data.currentUser; // Assuming the user object is structured this way
+            populateUserProfile(user);
+          } else {
+            console.error("Error fetching current user:", response.statusText);
+            displayError("Failed to fetch user data");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          displayError("An error occurred");
+        }
+      }
+
+      // Populate user profile with fetched data
+      function populateUserProfile(user) {
+        document.getElementById("profileName").value = user.name;
+        document.getElementById("email").value = user.email;
+        document.getElementById("companyName").value = user.companyname;
+        document.getElementById("designation").value = user.designation;
+        document.getElementById("experience").value = user.experience;
+        document.getElementById("educationDetails").value =
+          user.educationdetails;
+        document.getElementById("description").value = user.description;
+      }
+
+      // Display error message on the page
+      function displayError(message) {
+        console.error(message);
+        alert(message);
+      }
+
+      // Call fetchCurrentUser when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchCurrentUser();
+      });
+
+      // Handle form submission
+      document
+        .getElementById("profileForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = {
+            name: document.getElementById("profileName").value,
+            newemail: document.getElementById("email").value,
+            companyname: document.getElementById("companyName").value,
+            designation: document.getElementById("designation").value,
+            experience: document.getElementById("experience").value,
+            educationdetails: document.getElementById("educationDetails").value,
+            description: document.getElementById("description").value,
+          };
+
+          try {
+            const token = localStorage.getItem("token");
+            if (!token) {
+              console.error("Token not found");
+              return;
+            }
+
+            const response = await axios.patch(
+              `${baseUrl}/investor/editprofile`,
+              formData,
+              {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                  Authorization: `Bearer ${token}`,
                 },
-            });
+              }
+            );
 
             // Handle success
             if (response.status === 200) {
-                console.log('User deleted successfully:', response.data);
-                alert('User deleted successfully!');
-                window.location.href = 'Signup.html';
+              console.log("Profile updated successfully:", response.data);
+              alert("Profile updated successfully!");
+              window.location.href = "InvestorProfilePage.html";
             } else {
-                console.error('Error deleting user:', response.statusText);
-                alert('Failed to delete user. Please try again.');
+              console.error("Error updating profile:", response.statusText);
+              alert("Failed to update profile. Please try again.");
             }
+          } catch (error) {
+            console.error("Error updating profile:", error);
+            alert("Failed to update profile. Please try again.");
+          }
+        });
 
-        } catch (error) {
-            console.error('Error deleting user:', error);
-            alert('Failed to delete user. Please try again.');
+      // Handle delete button click
+      document
+        .getElementById("deleteButton")
+        .addEventListener("click", async function (event) {
+          event.preventDefault();
+
+          const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+          if (!token) {
+            console.error("Token not found");
+            return;
+          }
+
+          try {
+            const response = await axios.delete(
+              `${baseUrl}/investor/deleteuser`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+
+            // Handle success
+            if (response.status === 200) {
+              console.log("User deleted successfully:", response.data);
+              alert("User deleted successfully!");
+              window.location.href = "Signup.html";
+            } else {
+              console.error("Error deleting user:", response.statusText);
+              alert("Failed to delete user. Please try again.");
+            }
+          } catch (error) {
+            console.error("Error deleting user:", error);
+            alert("Failed to delete user. Please try again.");
+          }
+        });
+
+      function updateNavbar() {
+        const token = localStorage.getItem("token");
+        const loginLink = document.getElementById("loginLink");
+        const logoutLink = document.getElementById("logoutLink");
+        const profileDropdown = document.getElementById("profileDropdown");
+
+        if (token) {
+          loginLink.style.display = "none";
+          logoutLink.style.display = "block";
+          profileDropdown.style.display = "block";
+        } else {
+          loginLink.style.display = "block";
+          logoutLink.style.display = "none";
+          profileDropdown.style.display = "none";
         }
-    });
-  </script>
+      }
 
+      async function updateUserNavigation(token) {
+        try {
+          const response = await axios.get(`${baseUrl}/check/role`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
-<script>
-  function updateNavbar() {
-    const token = localStorage.getItem("token");
-    const loginLink = document.getElementById("loginLink");
-    const logoutLink = document.getElementById("logoutLink");
-    const profileDropdown = document.getElementById("profileDropdown");
+          if (response.status === 200) {
+            const userType = response.data.role;
+            console.log("usertype:", userType);
 
-    if (token) {
-      loginLink.style.display = "none";
-      logoutLink.style.display = "block";
-      profileDropdown.style.display = "block";
-    } else {
-      loginLink.style.display = "block";
-      logoutLink.style.display = "none";
-      profileDropdown.style.display = "none";
-    }
-  }
+            // Show the appropriate profile link
+            const investorProfile = document.getElementById("investorprofile");
+            const entrepreneurProfile = document.getElementById(
+              "entrepreneurprofile"
+            );
 
-  async function updateUserNavigation(token) {
-    try {
-      const response = await axios.get("http://localhost:3000/check/role", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+            console.log(userType === "entrepreneur");
+            if (userType === "entrepreneur") {
+              entrepreneurProfile.style.display = "block";
+              investorProfile.style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "block";
+              // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
+
+              document.getElementById("mycourse").style.display = "block";
+
+              // document.getElementById("investorSection").style.display = "none";
+              // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
+              document.getElementById("entrepreneurIdea").style.display =
+                "none";
+              document.getElementById("entrepreneurList").style.display =
+                "none";
+
+              // Show Investor Ideas and Investor List to entrepreneurs
+              // document.getElementById("investorIdea").style.display = "block";
+              document.getElementById("investorlist").style.display = "block";
+
+              // Show the success section only to entrepreneurs
+              // document.getElementById("sucessSection").style.display = "block";
+
+              console.log("response");
+              // Show Course, Resources, and ConsultUs sections for entrepreneurs
+              document.getElementById("courseSection").style.display = "block";
+              document.getElementById("resourceSection").style.display =
+                "block";
+              document.getElementById("consultUsSection").style.display =
+                "block"; // Ensure ConsultUs is displayed
+            } else if (userType === "investor") {
+              investorProfile.style.display = "block";
+              entrepreneurProfile.style.display = "none";
+              // document.getElementById("entrepreneurSection").style.display =
+              //   "none";
+              // document.getElementById("investorSection").style.display =
+              //   "block";
+
+              // Show Entrepreneur Ideas and Entrepreneur List for investors
+              document.getElementById("entrepreneurIdea").style.display =
+                "block";
+              document.getElementById("entrepreneurList").style.display =
+                "block";
+
+              // Hide Investor Ideas and Investor List from investors
+              document.getElementById("investorIdea").style.display = "none";
+              document.getElementById("investorlist").style.display = "none";
+
+              // Hide Course, Resources, and ConsultUs sections from investors if needed
+              document.getElementById("courseSection").style.display = "none";
+              document.getElementById("resourceSection").style.display = "none";
+              console.log("Course section");
+              document.getElementById("consultUsSection").style.display =
+                "none";
+              // Hide the success section from investors
+              document.getElementById("sucessSection").style.display = "none";
+            } else {
+              entrepreneurProfile.style.display = "none";
+              investorProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
+                "none";
+              document.getElementById("investorSection").style.display = "none";
+            }
+          } else {
+            console.error("Failed to fetch user type:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+
+        updateNavbar();
+
+        if (token) {
+          updateUserNavigation(token);
+        } else {
+          // If no one is logged in, show the Consult Us section but disable the link
+          document.getElementById("consultUsSection").style.display = "block";
+          document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
+          document
+            .getElementById("consultLink")
+            .addEventListener("click", function (event) {
+              event.preventDefault();
+              alert("Please Log in");
+              // open login page
+              window.location.href = "login.html";
+            });
+        }
       });
 
-      if (response.status === 200) {
-        const userType = response.data.role;
-        console.log("usertype:", userType);
-
-        // Show the appropriate profile link
-        const investorProfile = document.getElementById("investorprofile");
-        const entrepreneurProfile = document.getElementById(
-          "entrepreneurprofile"
-        );
-
-        console.log(userType === "entrepreneur");
-        if (userType === "entrepreneur") {
-          entrepreneurProfile.style.display = "block";
-          investorProfile.style.display = "none";
-          // document.getElementById("entrepreneurSection").style.display =
-          //   "block";
-          // document.getElementById("wallet1").innerText =`Wallet: (${response.data.wallet})`
-
-          document.getElementById("mycourse").style.display = "block";
-
-          // document.getElementById("investorSection").style.display = "none";
-          // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
-          document.getElementById("entrepreneurIdea").style.display =
-            "none";
-          document.getElementById("entrepreneurList").style.display =
-            "none";
-
-          // Show Investor Ideas and Investor List to entrepreneurs
-          // document.getElementById("investorIdea").style.display = "block";
-          document.getElementById("investorlist").style.display = "block";
-
-          // Show the success section only to entrepreneurs
-          // document.getElementById("sucessSection").style.display = "block";
-
-          console.log("response");
-          // Show Course, Resources, and ConsultUs sections for entrepreneurs
-          document.getElementById("courseSection").style.display = "block";
-          document.getElementById("resourceSection").style.display =
-            "block";
-          document.getElementById("consultUsSection").style.display =
-            "block"; // Ensure ConsultUs is displayed
-        } else if (userType === "investor") {
-          investorProfile.style.display = "block";
-          entrepreneurProfile.style.display = "none";
-          // document.getElementById("entrepreneurSection").style.display =
-          //   "none";
-          // document.getElementById("investorSection").style.display =
-          //   "block";
-
-          // Show Entrepreneur Ideas and Entrepreneur List for investors
-          document.getElementById("entrepreneurIdea").style.display =
-            "block";
-          document.getElementById("entrepreneurList").style.display =
-            "block";
-
-          // Hide Investor Ideas and Investor List from investors
-          document.getElementById("investorIdea").style.display = "none";
-          document.getElementById("investorlist").style.display = "none";
-
-          // Hide Course, Resources, and ConsultUs sections from investors if needed
-          document.getElementById("courseSection").style.display = "none";
-          document.getElementById("resourceSection").style.display = "none";
-          console.log("Course section");
-          document.getElementById("consultUsSection").style.display =
-            "none";
-          // Hide the success section from investors
-          document.getElementById("sucessSection").style.display = "none";
-        } else {
-          entrepreneurProfile.style.display = "none";
-          investorProfile.style.display = "none";
-          document.getElementById("entrepreneurSection").style.display =
-            "none";
-          document.getElementById("investorSection").style.display = "none";
+      async function handleLogout() {
+        try {
+          const response = await axios.post(`${baseUrl}/auth/logout`);
+          alert(response.data.message);
+          localStorage.removeItem("token");
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error("Logout error:", error);
+          alert("Logout failed. Please try again.");
         }
-      } else {
-        console.error("Failed to fetch user type:", response.statusText);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const token = localStorage.getItem("token");
-
-    updateNavbar();
-
-    if (token) {
-      updateUserNavigation(token);
-    } else {
-      // If no one is logged in, show the Consult Us section but disable the link
-      document.getElementById("consultUsSection").style.display = "block";
-      document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
       document
-        .getElementById("consultLink")
+        .getElementById("logoutLink")
         .addEventListener("click", function (event) {
-          event.preventDefault();
-          alert("Please Log in");
-          // open login page
-          window.location.href = "login.html";
+          event.preventDefault(); // Prevent default link behavior
+          handleLogout(); // Call the logout function when link is clicked
         });
-    }
-  });
 
-  async function handleLogout() {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/auth/logout"
-      );
-      alert(response.data.message);
-      localStorage.removeItem("token");
-      window.location.href = "index.html";
-    } catch (error) {
-      console.error("Logout error:", error);
-      alert("Logout failed. Please try again.");
-    }
-  }
+      // on clink consultsus open loagin
 
-  document
-    .getElementById("logoutLink")
-    .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      handleLogout(); // Call the logout function when link is clicked
-    });
-</script>
-
-<script>
-  // on clink consultsus open loagin
-
-  document
-    .getElementById("log1")
-    .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      window.location.href = "login.html"; // Redirect to login page
-    });
-</script>
-
+      document
+        .getElementById("log1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
   </body>
 </html>

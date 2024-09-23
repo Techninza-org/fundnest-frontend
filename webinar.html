@@ -505,6 +505,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <script>
+      const baseUrl="http://103.119.171.20:3000"
       function updateNavbar() {
         const token = localStorage.getItem("token");
         const loginLink = document.getElementById("loginLink");
@@ -524,7 +525,7 @@
     
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get(`${baseUrl}/check/role`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -637,7 +638,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            `${baseUrl}/auth/logout`
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -654,9 +655,7 @@
           event.preventDefault(); // Prevent default link behavior
           handleLogout(); // Call the logout function when link is clicked
         });
-    </script>
     
-    <script>
       // on clink consultsus open loagin
     
       document
@@ -665,8 +664,7 @@
           event.preventDefault(); // Prevent default link behavior
           window.location.href = "login.html"; // Redirect to login page
         });
-    </script> 
-    <script>
+   
       async function fetchWebinarDetails() {
         const urlParams = new URLSearchParams(window.location.search);
         const videoId = urlParams.get("id");
@@ -690,7 +688,7 @@
 
           // Fetch the video details
           const response = await axios.get(
-            `http://localhost:4000/videos/all/${videoId}`,
+            `http://103.119.171.20:4000/videos/all/${videoId}`,
              config
           );
           console.log(response, 'res');
@@ -729,9 +727,7 @@
 
       // Ensure the function is called when the window loads
       window.onload = fetchWebinarDetails;
-    </script>
-
-    <script>
+    
       document
         .getElementById("webinarForm")
         .addEventListener("submit", async function (event) {
@@ -766,7 +762,7 @@
 
             // Send the POST request using Axios to create a webinar booking
             const response = await axios.post(
-              "http://localhost:3000/webinars/webinar",
+              `${baseUrl}/webinars/webinar`,
               payload,
               config
             );
