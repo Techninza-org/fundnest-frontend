@@ -453,7 +453,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        const token = localStorage.getItem("token");
+        // const token = localStorage.getItem("token");
 
         updateNavbar();
 
@@ -480,6 +480,7 @@
             `${baseUrl}/auth/logout`
           );
           alert(response.data.message);
+          
           localStorage.removeItem("token");
           window.location.href = "index.html";
         } catch (error) {
@@ -508,7 +509,8 @@
       const apiURL = "http://103.119.171.20:4000/videos/get-courses";
 
       // Token for authentication (replace with actual token)
-      const token = "your-auth-token";
+      // const token = localStorage.getItem("token")
+      console.log(token);
 
       // Fetch the courses using Axios
       axios
@@ -519,6 +521,7 @@
         })
         .then((response) => {
           const courses = response.data.courses;
+          console.log("course",course)
           const coursesContainer = document.getElementById("courses-container");
 
           // Loop through each course and create HTML structure
@@ -617,7 +620,7 @@
             var payment_id = response.razorpay_payment_id;
 
             // Get the token from local storage
-            var token = localStorage.getItem("token"); // Replace with your token key
+            // var token = localStorage.getItem("token"); // Replace with your token key
 
             if (!token) {
               alert("User is not authenticated.");

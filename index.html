@@ -680,11 +680,12 @@
         });
     
       // Fetching blogs from the API
-      axios
-        .get(`${baseUrl}/admin/blog`)
+    axios.get(`${baseUrl}/admin/blog`)
         .then(function (response) {
           const blogs = response.data;
+          console.log("blog=",blogs);
           const blogContainer = document.getElementById("blogContainer");
+
 
           // Clear the container before appending new content (optional but good practice)
           blogContainer.innerHTML = "";
