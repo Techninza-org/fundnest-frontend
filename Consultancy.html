@@ -785,7 +785,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const baseUrl = "http://localhost:3000"; // Uncomment when using the baseUrl in production
+        const baseUrl = "http://103.119.171.20:3000"; // Uncomment when using the baseUrl in production
         const consultantContainer = document.getElementById(
           "consultantContainer"
         );
@@ -887,7 +887,7 @@
 
   async function updateUserNavigation(token) {
     try {
-      const response = await axios.get("http://localhost:3000/check/role", {
+      const response = await axios.get("http://103.119.171.20:3000/check/role", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -1000,7 +1000,7 @@
   async function handleLogout() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/logout"
+        "http://103.119.171.20:3000/auth/logout"
       );
       alert(response.data.message);
       localStorage.removeItem("token");
@@ -1166,7 +1166,7 @@
               return;
             }
             const response = await axios.post(
-              "http://localhost:3000/appointments/appointment",
+              "http://103.119.171.20:3000/appointments/appointment",
               {
                 customerName,
                 date,

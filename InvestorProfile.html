@@ -555,7 +555,7 @@
 
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get("http://103.119.171.20:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -668,7 +668,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            "http://103.119.171.20:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -718,7 +718,7 @@
           investorId = params.id; // Store investorId globally
 
           const response = await axios.get(
-            `http://localhost:3000/entrepreneur/investor/${investorId}`,
+            `http://103.119.171.20:3000/entrepreneur/investor/${investorId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -782,7 +782,7 @@
 
         // POST request to express interest
         fetch(
-          `http://localhost:3000/entrepreneur/express-interest/${investorId}`,
+          `http://103.119.171.20:3000/entrepreneur/express-interest/${investorId}`,
           {
             headers: {
               "Content-Type": "application/json",

@@ -429,7 +429,7 @@
               }
   
               const response = await axios.get(
-                  "http://localhost:3000/entrepreneur/currentuser",
+                  "http://103.119.171.20:3000/entrepreneur/currentuser",
                   {
                       headers: {
                           Authorization: `Bearer ${token}`,
@@ -490,7 +490,7 @@
             throw new Error("Token not found");
         }
         
-        const response = await axios.patch('http://localhost:3000/entrepreneur/editprofile', formObject, {
+        const response = await axios.patch('http://103.119.171.20:3000/entrepreneur/editprofile', formObject, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -521,7 +521,7 @@
         }
 
         try {
-            const response = await axios.delete('http://localhost:3000/entrepreneur/deleteuser', {
+            const response = await axios.delete('http://103.119.171.20:3000/entrepreneur/deleteuser', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -565,7 +565,7 @@
 
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get("http://103.119.171.20:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -678,7 +678,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            "http://103.119.171.20:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
